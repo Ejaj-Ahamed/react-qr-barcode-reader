@@ -21,7 +21,9 @@ export const QrReader: React.FC<QrReaderProps> = ({
     scanDelay,
     onResult,
     videoId,
-  });
+    onSuccess:(res:any)=>{ 
+    }
+  }); 
 
   return (
     <section className={className} style={containerStyle}>
@@ -33,7 +35,7 @@ export const QrReader: React.FC<QrReaderProps> = ({
       >
         {!!ViewFinder && <ViewFinder />}
         <video
-          muted
+          muted 
           id={videoId}
           style={{
             ...styles.video,

@@ -72,6 +72,7 @@ export type UseQrReaderHookProps = {
    * Property that represents the ID of the video element
    */
   videoId?: string;
+  onSuccess:Function
 };
 
 export type UseQrReaderHook = (props: UseQrReaderHookProps) => void;

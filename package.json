@@ -1,6 +1,6 @@
 {
   "name": "react-qr-barcode-reader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React Component for reading QR codes from the webcam",
   "scripts": {
     "build": "rollup -c",

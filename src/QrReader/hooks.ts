@@ -1,5 +1,6 @@
 import { MutableRefObject, useEffect, useRef } from 'react';
-import { BrowserMultiFormatReader } from '@zxing/library';
+import { BrowserMultiFormatReader, } from '@zxing/library'; 
+
 
 import { UseQrReaderHook } from '../types';
 
@@ -11,8 +12,8 @@ export const useQrReader: UseQrReaderHook = ({
   constraints: video,
   onResult,
   videoId,
+  onSuccess
 }) => {
-  const controlsRef: any = useRef(null);
 
   useEffect(() => {
     const codeReader = new BrowserMultiFormatReader();
@@ -32,9 +33,10 @@ export const useQrReader: UseQrReaderHook = ({
         .decodeFromConstraints({ video }, videoId, (result, error) => {
           if (isValidType(onResult, 'onResult', 'function')) {
             onResult(result, error, codeReader);
+            onSuccess(result);
           }
         })
-        .then((controls) => (controlsRef.current = controls))
+        .then((controls: any) => { })
         .catch((error: Error) => {
           if (isValidType(onResult, 'onResult', 'function')) {
             onResult(null, error, codeReader);
@@ -43,7 +45,9 @@ export const useQrReader: UseQrReaderHook = ({
     }
 
     return () => {
-      controlsRef.current?.stop();
+      setTimeout(() => {
+        codeReader.reset();
+      }, 400);
     };
   }, []);
 };
