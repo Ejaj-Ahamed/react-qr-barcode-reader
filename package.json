@@ -1,6 +1,6 @@
 {
-  "name": "react-qr-reader",
-  "version": "3.0.0-beta-1",
+  "name": "react-qr-barcode-reader",
+  "version": "1.0.1",
   "description": "A React Component for reading QR codes from the webcam",
   "scripts": {
     "build": "rollup -c",
@@ -8,14 +8,15 @@
     "lint": "eslint --fix 'src/**'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "prepare": "husky install"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-qr-reader/react-qr-reader.git"
+    "url": "git+https://github.com/Ejaj-Ahamed/react-qr-barcode-reader.git"
   },
   "keywords": [
     "react",
@@ -26,16 +27,15 @@
   "author": "thomas billiet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-qr-reader/react-qr-reader/issues"
+    "url": "https://https://github.com/Ejaj-Ahamed/react-qr-barcode-reader/issues"
   },
-  "homepage": "https://github.com/react-qr-reader/react-qr-reader#readme",
+  "homepage": "https://https://github.com/Ejaj-Ahamed/react-qr-barcode-reader#readme",
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   },
   "dependencies": {
-    "@zxing/browser": "0.0.7",
-    "@zxing/library": "^0.18.3",
+    "@zxing/library": "^0.17.0",
     "rollup": "^2.67.2"
   },
   "devDependencies": {
@@ -65,7 +65,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "husky": "^4.3.0",
+    "husky": ">=7",
     "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
     "react": "^16.13.1",
@@ -79,16 +79,12 @@
     "ts-loader": "^8.0.3",
     "typescript": "^4.0.2"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx,js,json,css,md,scss}": [
       "prettier --write",
       "git add"
-    ]
+    ],
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }

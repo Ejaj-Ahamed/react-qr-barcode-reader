@@ -37,13 +37,13 @@ You can install this library via NPM or YARN.
 ### NPM
 
 ```bash
-npm i react-qr-reader
+npm i react-qr-barcode-reader
 ```
 
 ### YARN
 
 ```bash
-yarn add react-qr-reader
+yarn add react-qr-barcode-reader
 ```
 
 ## Example Usage
@@ -52,7 +52,7 @@ After reading and performing the previous steps, you should be able to import th
 
 ```javascript
 import React, { useState } from 'react';
-import { QrReader } from 'react-qr-reader';
+import { QrReader } from 'react-qr-barcode-reader';
 
 const Test = (props) => {
   const [data, setData] = useState('No result');

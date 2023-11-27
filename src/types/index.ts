@@ -1,4 +1,4 @@
-import { BrowserQRCodeReader } from '@zxing/browser';
+import { BrowserMultiFormatReader } from '@zxing/library';
 import { Result } from '@zxing/library';
 
 export type QrReaderProps = {
@@ -52,7 +52,7 @@ export type OnResultFunction = (
   /**
    * The instance of the QR browser reader
    */
-  codeReader?: BrowserQRCodeReader
+  codeReader?: BrowserMultiFormatReader
 ) => void;
 
 export type UseQrReaderHookProps = {
